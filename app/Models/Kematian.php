@@ -11,6 +11,12 @@ class Kematian extends Model
 
     // Tambahkan baris ini biar Laravel ijinin data masuk ke kolom-kolom ini
     protected $fillable = [
+        'header_bulan',
+        'header_tahun',
+        'nama_rs_puskesmas',
+        'kode_rs_puskesmas',
+        'no_urut_kematian',
+        'no_rm',
         'nama_lengkap',
         'nik',
         'jenis_kelamin',

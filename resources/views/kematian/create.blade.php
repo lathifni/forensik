@@ -12,6 +12,40 @@
                 <form action="{{ route('kematian.store') }}" method="POST">
                     @csrf
 
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-200 mb-10">
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                            
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Bulan / Tahun</label>
+                                <div class="flex items-center space-x-2">
+                                    <input type="number" name="header_bulan" min="1" max="12" class="w-1/2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" placeholder="MM">
+                                    <span class="text-gray-400">/</span>
+                                    <input type="number" name="header_tahun" min="2020" class="w-1/2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" placeholder="YYYY">
+                                </div>
+                            </div>
+
+                            <div class="md:col-span-2">
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Nama RS / Puskesmas</label>
+                                <input type="text" name="nama_rs_puskesmas" class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" placeholder="RS Dr. M. Djamil Padang">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-1">No. Urut Kematian</label>
+                                <input type="text" name="no_urut_kematian" class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" placeholder="Contoh: 001">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Kode RS / Puskesmas</label>
+                                <input type="text" name="kode_rs_puskesmas" class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" placeholder="Kode Faskes">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-1">No. RM (Rekam Medis)</label>
+                                <input type="text" name="no_rm" class="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 font-mono" placeholder="XX-XX-XX">
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="mb-10">
                         <h3 class="text-lg font-bold text-blue-700 border-b-2 border-blue-100 pb-2 mb-6 uppercase tracking-wider">A. IDENTITAS JENAZAH</h3>
                         

@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('kematians', function (Blueprint $table) {
         $table->id();
+        $table->integer('header_bulan')->nullable();
+        $table->integer('header_tahun')->nullable();
+        $table->string('nama_rs_puskesmas')->nullable();
+        $table->string('kode_rs_puskesmas')->nullable();
+        $table->string('no_urut_kematian')->nullable();
+        $table->string('no_rm')->nullable();
         // Bagian A
         $table->string('nama_lengkap');
         $table->string('nik', 16)->nullable();

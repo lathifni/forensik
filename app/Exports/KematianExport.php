@@ -24,6 +24,12 @@ class KematianExport implements FromCollection, WithHeadings, WithMapping
     {
         return [
             'ID',
+            'bulan',
+            'tahun',
+            'nama_rs_puskesmas',
+            'kode_rs_puskesmas',
+            'no_urut_kematian',
+            'no_rm',
             'Nama Lengkap',
             'NIK',
             'Jenis Kelamin',
@@ -58,6 +64,12 @@ class KematianExport implements FromCollection, WithHeadings, WithMapping
     {
         return [
             $kematian->id,
+            $kematian->header_bulan,
+            $kematian->header_tahun,
+            $kematian->nama_rs_puskesmas,
+            $kematian->kode_rs_puskesmas,
+            $kematian->no_urut_kematian,
+            $kematian->no_rm,
             $kematian->nama_lengkap,
             "'" . $kematian->nik, // Kasih petik satu biar NIK gak jadi angka scientific di Excel
             $kematian->jenis_kelamin,

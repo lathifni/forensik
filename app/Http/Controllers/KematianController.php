@@ -20,6 +20,12 @@ class KematianController extends Controller
 
     public function store(Request $request) {
         $data = $request->validate([
+            'header_bulan' => 'required|string',
+            'header_tahun' => 'required|string',
+            'nama_rs_puskesmas' => 'required|string',
+            'kode_rs_puskesmas' => 'required|string',
+            'no_urut_kematian' => 'required|string',
+            'no_rm' => 'required|string',
             'nama_lengkap' => 'required|string',
             'nik' => 'nullable',
             'jenis_kelamin' => 'nullable',
