@@ -12,18 +12,18 @@
         </div>
     </x-slot>
 
-    <div class="py-12">
+    <div class="py-4">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             
-            <div class="mb-6">
-                <a href="{{ route('kematian.create') }}" class="inline-flex items-center px-6 py-4 bg-blue-600 border border-transparent rounded-xl font-bold text-lg text-white uppercase tracking-widest hover:bg-blue-700 shadow-lg shadow-blue-200 active:bg-blue-900 transition ease-in-out duration-150">
+            <div class="mb-4">
+                <a href="{{ route('kematian.create') }}" class="inline-flex items-center p-4 bg-blue-600 border border-transparent rounded-xl font-bold text-base text-white uppercase tracking-widest hover:bg-blue-700 shadow-lg shadow-blue-200 active:bg-blue-900 transition ease-in-out duration-150">
                     <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
                     Tambahkan Surat Keterangan Kematian
                 </a>
             </div>
 
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-xl">
-                <div class="p-6 text-gray-900">
+                <div class="p-4 text-gray-900">
                     <h3 class="text-lg font-bold mb-4">Data Terbaru</h3>
                     
                     <div class="overflow-x-auto">
@@ -65,6 +65,10 @@
                                 @endforelse
                             </tbody>
                         </table>
+                    </div>
+                    {{-- BAGIAN NAVIGASI HALAMAN (NEXT/PREVIOUS) --}}
+                    <div class="mt-6">
+                        {{ $listKematian->links() }}
                     </div>
                 </div>
             </div>

@@ -12,7 +12,8 @@ class KematianController extends Controller
     public function index()
     {
         // Ambil 10 data terbaru berdasarkan waktu dibuat
-        $listKematian = Kematian::latest()->take(10)->get();
+        // $listKematian = Kematian::latest()->take(10)->get();
+        $listKematian = Kematian::latest()->paginate(10);
 
         return view('dashboard', compact('listKematian'));
     }
@@ -65,5 +66,16 @@ class KematianController extends Controller
         $data = Kematian::findOrFail($id);
 
         return view('kematian.show', compact('data'));
+    }
+
+    public function edit($id) {
+        $data = Kematian::findOrFail($id);
+        return view('kematian.edit', compact('data'));
+    }
+
+    public function update(Request $request, $id) {
+        $data = Kematian::findOrFail($id);
+        $data->update($request->all()); // Sesuaikan kalau mau pake validasi dulu
+        return redirect()->route('kematian.show', $id)->with('success', 'Data berhasil diperbarui');
     }
 }

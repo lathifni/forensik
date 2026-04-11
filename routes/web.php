@@ -37,6 +37,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/kematian', [KematianController::class, 'store'])->name('kematian.store');
     Route::get('/kematian/export', [KematianController::class, 'export'])->name('kematian.export');
     Route::get('/kematian/detail/{id}', [KematianController::class, 'show'])->name('kematian.show');
+    Route::get('/kematian/{id}/edit', [KematianController::class, 'edit'])->name('kematian.edit');
+    Route::put('/kematian/{id}', [KematianController::class, 'update'])->name('kematian.update');
 });
 
 require __DIR__.'/auth.php';
