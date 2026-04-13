@@ -7,7 +7,7 @@
                     <img src="{{ asset('images/logo.png') }}" class="h-20 w-auto mx-auto mb-3" alt="Logo RS M. Djamil">
                 </div>
                 <div class="mt-2 inline-block px-4 py-1 bg-gray-100 rounded-full text-xs font-bold text-gray-600 uppercase tracking-widest">
-                    Forensik
+                    Instalasi Forensik & Pemulasaran Jenazah
                 </div>
             </div>
 
