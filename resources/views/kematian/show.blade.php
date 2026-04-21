@@ -263,14 +263,17 @@
                                     @foreach($dasarOptions as $idx => $opt)
                                         <div class="flex items-center">
                                             <span class="inline-block w-4 h-4 border border-black mr-2 text-center leading-3 font-bold">
-                                                {{ strtoupper($data->dasar_diagnosis) == $opt ? '✓' : '' }}
+                                                {{ strtolower($data->dasar_diagnosis) == strtolower($opt) ? '✓' : '' }}
                                             </span>
                                             <span>{{ $idx + 1 }}. {{ $opt }}</span>
                                         </div>
                                     @endforeach
                                     <div class="flex items-center">
                                         <span class="inline-block w-4 h-4 border border-black mr-2 text-center leading-3">
-                                            {{ !in_array(strtoupper($data->dasar_diagnosis), $dasarOptions) ? '✓' : '' }}
+                                            {{ !in_array(
+                                                strtolower($data->dasar_diagnosis), 
+                                                array_map('strtolower', $dasarOptions)
+                                            ) ? '✓' : '' }}
                                         </span>
                                         <span>6. Surat Keterangan Lainnya......</span>
                                     </div>
