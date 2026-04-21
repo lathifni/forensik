@@ -253,8 +253,11 @@
                                 <div class="grid grid-cols-2 gap-x-8 gap-y-1 flex-1">
                                     @php
                                         $dasarOptions = [
-                                            'REKAM MEDIS', 'PEMERIKSAAN LUAR JENAZAH', 
-                                            'AUTOPSI FORENSIK', 'AUTOPSI MEDIS', 'AUTOPSI VERBAL'
+                                            'Rekam Medis',
+                                            'Pemeriksaan Luar Jenazah',
+                                            'Autopsi Forensik',
+                                            'Autopsi Medis',
+                                            'Autopsi Verbal'
                                         ];
                                     @endphp
                                     @foreach($dasarOptions as $idx => $opt)
@@ -269,7 +272,7 @@
                                         <span class="inline-block w-4 h-4 border border-black mr-2 text-center leading-3">
                                             {{ !in_array(strtoupper($data->dasar_diagnosis), $dasarOptions) ? '✓' : '' }}
                                         </span>
-                                        <span>6. SURAT KETERANGAN LAINNYA....</span>
+                                        <span>6. Surat Keterangan Lainnya......</span>
                                     </div>
                                 </div>
                             </div>
