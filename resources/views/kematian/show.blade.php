@@ -22,39 +22,12 @@
         <div class="max-w-5xl mx-auto">
             <div id="printableArea" class="bg-white overflow-hidden">
                 
-                <div class="hidden print:block mb-2">
-                  <div class="flex items-center">
-                      
-                      <!-- Logo -->
-                      <img src="{{ asset('images/logo.png') }}" class="h-20 mr-4">
+                <div class="hidden print:block mb-2 px-4">
+                    <img src="{{ asset('images/kop_surat.png') }}" class="w-full h-auto">
 
-                      <!-- Text Kop -->
-                      <div class="text-center flex-1 leading-tight">
-                          <h1 class="text-lg font-bold text-teal-600 uppercase tracking-wide">
-                              Kementerian Kesehatan
-                          </h1>
-
-                          <h2 class="text-base font-semibold uppercase">
-                              Direktorat Jenderal Pelayanan Kesehatan
-                          </h2>
-
-                          <h3 class="text-xl font-extrabold uppercase tracking-wider">
-                              RSUP Dr. M. Djamil Padang
-                          </h3>
-
-                          <p class="text-xs mt-1">
-                              Jl. Perintis Kemerdekaan Padang, Sumatera Barat 25217
-                          </p>
-
-                          <p class="text-xs">
-                              Telp: (0751) 8956666 | Website: www.rsdjamil.co.id
-                          </p>
-                      </div>
-                  </div>
-
-                  <!-- Garis bawah -->
-                  <div class="border-b-[2px] border-black"></div>
-              </div>
+                    <!-- Garis -->
+                    <div class="border-b-2 border-black"></div>
+                </div>
 
                 <div class="print:text-black">
                     <h2 class="hidden print:block text-center text-xl font-black uppercase">Surat Keterangan Kematian</h2>
@@ -69,7 +42,7 @@
             @page {
                 size: A4;
                 /* Kita kasih margin tipis aja biar maksimal tapi gak kepotong printer */
-                margin: 1cm 1.5cm 1cm 1.5cm !important; 
+                margin: 0.5cm 1.5cm 1cm 1.5cm !important; 
             }
             /* 1. Paksa seluruh background halaman jadi putih */
             html, body {
@@ -107,9 +80,21 @@
 
             /* 5. Set font size agar pas di kertas A4 */
             body {
-                font-size: 11pt;
-                line-height: 1.2;
+                font-size: 10pt !important;
+                line-height: 1.1 !important;
                 color: black;
+            }
+
+            .p-2, .px-2, .py-2 {
+                padding: 2px !important;
+            }
+
+            .gap-2, .gap-4, .gap-x-8 {
+                gap: 4px !important;
+            }
+
+            .mb-2, .mb-3, .mb-4 {
+                margin-bottom: 4px !important;
             }
         }
     </style>
@@ -117,120 +102,52 @@
     <div class="">
         <div class="max-w-5xl mx-auto">
             <div class="bg-white overflow-hidden">
-              <div class="p-2 grid grid-cols-1 md:grid-cols-2 gap-2">
+                <div class="grid grid-cols-2 gap-x-6 gap-y-1 text-sm">
+
                 <!-- Baris 1 -->
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="flex justify-between">
-                        <span class="text-gray-700">Bulan / Tahun :</span>
-                        <span class="font-semibold">{{ $data->header_bulan }} / {{ $data->header_tahun }}</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span class="text-gray-700">Nama RS/Puskesmas :</span>
-                        <span class="font-semibold">{{ $data->nama_rs_puskesmas }}</span>
-                    </div>
+                <div class="grid grid-cols-[160px_10px_1fr]">
+                    <span class="text-gray-700">Bulan / Tahun</span>
+                    <span>:</span>
+                    <span class="font-semibold">{{ $data->header_bulan }} / {{ $data->header_tahun }}</span>
+                </div>
+
+                <div class="grid grid-cols-[160px_10px_1fr]">
+                    <span class="text-gray-700">Nama RS/Puskesmas</span>
+                    <span>:</span>
+                    <span class="font-semibold">{{ $data->nama_rs_puskesmas }}</span>
                 </div>
 
                 <!-- Baris 2 -->
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="flex justify-between">
-                        <span class="text-gray-700">Kode RS/Puskesmas :</span>
-                        <span class="font-semibold tracking-widest">{{ $data->kode_rs_puskesmas }}</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span class="text-gray-700">No. Urut Kematian :</span>
-                        <span class="font-semibold text-blue-700 underline">{{ $data->no_urut_kematian }}</span>
-                    </div>
+                <div class="grid grid-cols-[160px_10px_1fr]">
+                    <span class="text-gray-700">Kode RS/Puskesmas</span>
+                    <span>:</span>
+                    <span class="font-semibold tracking-widest">{{ $data->kode_rs_puskesmas }}</span>
                 </div>
 
-                <!-- Baris 3 (Full) -->
-                <!-- <div class="flex justify-between">
+                <div class="grid grid-cols-[160px_10px_1fr]">
+                    <span class="text-gray-700">No. Urut Kematian</span>
+                    <span>:</span>
+                    <span class="font-semibold text-blue-700 underline">{{ $data->no_urut_kematian }}</span>
+                </div>
+
+                <!-- Baris 3 -->
+                <div class="grid grid-cols-[160px_10px_1fr]">
                     <span class="text-gray-700">No. Rekam Medis (RM)</span>
-                    <span class="font-mono font-semibold border px-2">
-                        {{ $data->no_rm }}
-                    </span>
-                </div> -->
-
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="flex justify-between">
-                        <span class="text-gray-700">No. Rekam Medis (RM) :</span>
-                        <span class="font-semibold tracking-widest">{{ $data->no_rm }}</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <!-- <span class="text-gray-700">No. Urut Kematian</span>
-                        <span class="font-semibold text-blue-700 underline">{{ $data->no_urut_kematian }}</span> -->
-                    </div>
+                    <span>:</span>
+                    <span class="font-semibold tracking-widest">{{ $data->no_rm }}</span>
                 </div>
+
+                <div></div> <!-- kosong biar balance -->
+
             </div>
 
-                <!-- <div class="px-2 border-b border-gray-100">
-                    <h3 class="text-lg font-bold text-blue-700 uppercase flex items-center mb-2">
-                        <span class="w-8 h-8 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center mr-3 text-sm font-black">A</span>
-                        Identitas Jenazah
-                    </h3>
-
-                    <div class="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
-                        <div class="flex flex-col md:flex-row md:items-center">
-                            <span class="text-sm font-semibold text-gray-500 w-full md:w-1/3 uppercase tracking-wide">1. Nama Lengkap</span>
-                            <span class="text-lg font-extrabold text-gray-900 w-full md:w-2/3">{{ $data->nama_lengkap }}</span>
-                        </div>
-
-                        <div class="flex flex-col md:flex-row md:items-center">
-                            <span class="text-sm font-semibold text-gray-500 w-full md:w-1/3 uppercase tracking-wide">2. NIK</span>
-                            <span class="text-base font-bold text-gray-800 w-full md:w-2/3 tracking-widest">{{ $data->nik ?? '-' }}</span>
-                        </div>
-
-                        <div class="flex flex-col md:flex-row md:items-center">
-                            <span class="text-sm font-semibold text-gray-500 w-full md:w-1/3 uppercase tracking-wide">3. Jenis Kelamin</span>
-                            <span class="text-base font-bold text-gray-800 w-full md:w-2/3">{{ $data->jenis_kelamin }}</span>
-                        </div>
-
-                        <div class="flex flex-col md:flex-row md:items-center">
-                            <span class="text-sm font-semibold text-gray-500 w-full md:w-1/3 uppercase tracking-wide">4. Tempat, Tgl Lahir</span>
-                            <span class="text-base font-bold text-gray-800 w-full md:w-2/3">{{ $data->tempat_lahir }}, {{ \Carbon\Carbon::parse($data->tanggal_lahir)->format('d F Y') }}</span>
-                        </div>
-
-                        <div class="flex flex-col md:flex-row md:items-center">
-                            <span class="text-sm font-semibold text-gray-500 w-full md:w-1/3 uppercase tracking-wide">5. Agama</span>
-                            <span class="text-base font-bold text-gray-800 w-full md:w-2/3">{{ $data->agama }}</span>
-                        </div>
-
-                        <div class="col-span-2 flex flex-col md:flex-row border-y border-gray-50">
-                            <span class="text-sm font-semibold text-gray-500 w-full md:w-[16.6%] md:mb-0 uppercase tracking-wide">6. Alamat Lengkap</span>
-                            <div class="w-full md:w-5/6">
-                                <p class="text-base font-bold text-gray-800 leading-relaxed">
-                                    {{ $data->alamat_jalan }} No. {{ $data->alamat_no }}, RT/RW {{ $data->alamat_rt_rw }}
-                                </p>
-                                <p class="text-sm text-gray-600 font-medium">
-                                    Kel. {{ $data->alamat_kelurahan }}, Kec. {{ $data->alamat_kecamatan }}, {{ $data->alamat_kota }} ({{ $data->alamat_kodepos }})
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col md:flex-row md:items-center">
-                            <span class="text-sm font-semibold text-gray-500 w-full md:w-1/3 uppercase tracking-wide">7. Status Kependudukan</span>
-                            <span class="text-base font-bold text-gray-800 w-full md:w-2/3">{{ $data->status_kependudukan }}</span>
-                        </div>
-
-                        <div class="flex flex-col md:flex-row md:items-center">
-                            <span class="text-sm font-semibold text-gray-500 w-full md:w-1/3 uppercase tracking-wide">8. Hubungan KK</span>
-                            <span class="text-base font-bold text-gray-800 w-full md:w-2/3">{{ $data->hubungan_kk }}</span>
-                        </div>
-
-                        <div class="col-span-2 flex flex-col md:flex-row md:items-center">
-                            <span class="text-sm font-bold text-gray-500 w-full md:w-1/3 uppercase tracking-wide">9. Waktu Meninggal</span>
-                            <span class="text-lg font-black text-red-700 w-full md:w-2/3">
-                                {{ \Carbon\Carbon::parse($data->waktu_meninggal)->format('d F Y - H:i') }} WIB
-                            </span>
-                        </div>
-                    </div>
-                </div> -->
-                <div class="px-2">
+                <div class="px-2 mt-4">
                     <h3 class="text-sm font-bold text-blue-700 uppercase flex items-center mb-2">
                         <span class="w-6 h-6 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center mr-3 text-sm font-black">A</span>
                         Identitas Jenazah
                     </h3>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 text-sm">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 text-xs">
                         <div class="flex items-start">
                             <span class="text-gray-500 font-semibold w-44 md:w-56 shrink-0">1. Nama Lengkap</span>
                             <span class="mr-2">:</span>
@@ -295,12 +212,12 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2">
-                    <div class="p-2">
+                    <div class="p-2 mt-4">
                         <h3 class="text-sm font-bold text-green-700 uppercase flex items-center">
-                            <span class="w-6 h-6 bg-green-100 text-green-700 rounded-full flex items-center justify-center mr-3 text-sm">B</span>
+                            <span class="w-6 h-6 bg-green-100 text-green-700 rounded-full flex items-center justify-center mr-3 text-sm mb-2">B</span>
                             Keterangan Khusus Kasus Kematian di rumah sakit atau lainnya (termasuk Do'a)
                         </h3>
-                        <div class="space-y-2 text-sm">
+                        <div class="space-y-2 text-xs">
                             <div class="flex items-start">
                                 <span class="text-gray-500 font-semibold w-44 md:w-36 shrink-0">1. Status Jenazah</span>
                                 <span class="mr-2">:</span>
@@ -323,30 +240,73 @@
                         </div>
                     </div>
                     
-                    <div class="p-2">
-                        <h3 class="text-sm font-bold text-red-700 uppercase flex items-center">
+                    <div class="p-2 mt-4">
+                        <h3 class="text-sm font-bold text-red-700 uppercase flex items-center mb-3">
                             <span class="w-6 h-6 bg-red-100 text-red-700 rounded-full flex items-center justify-center mr-3 text-sm">C</span>
                             Penyebab Kematian
                         </h3>
-                        <div class="space-y-3 text-sm">
+
+                        <div class="space-y-4 text-xs leading-tight text-gray-800">
                             <div class="flex items-start">
-                                <span class="text-gray-500 font-semibold w-44 md:w-36 shrink-0">1. Dasar Diagnosis</span>
-                                <span class="mr-2">:</span>
-                                <span class="text-gray-900 font-bold uppercase">{{ $data->dasar_diagnosis }}</span>
+                                <span class="w-40 shrink-0 font-semibold ">1. Dasar Diagnosis</span>
+                                <span class="mr-4">:</span>
+                                <div class="grid grid-cols-2 gap-x-8 gap-y-1 flex-1">
+                                    @php
+                                        $dasarOptions = [
+                                            'REKAM MEDIS', 'PEMERIKSAAN LUAR JENAZAH', 
+                                            'AUTOPSI FORENSIK', 'AUTOPSI MEDIS', 'AUTOPSI VERBAL'
+                                        ];
+                                    @endphp
+                                    @foreach($dasarOptions as $idx => $opt)
+                                        <div class="flex items-center">
+                                            <span class="inline-block w-4 h-4 border border-black mr-2 text-center leading-3 font-bold">
+                                                {{ strtoupper($data->dasar_diagnosis) == $opt ? '✓' : '' }}
+                                            </span>
+                                            <span>{{ $idx + 1 }}. {{ $opt }}</span>
+                                        </div>
+                                    @endforeach
+                                    <div class="flex items-center">
+                                        <span class="inline-block w-4 h-4 border border-black mr-2 text-center leading-3">
+                                            {{ !in_array(strtoupper($data->dasar_diagnosis), $dasarOptions) ? '✓' : '' }}
+                                        </span>
+                                        <span>6. SURAT KETERANGAN LAINNYA....</span>
+                                    </div>
+                                </div>
                             </div>
 
-                            <div class="flex items-start">
-                                <span class="text-gray-500 font-semibold w-44 md:w-36 shrink-0">2. Kelompok Penyebab</span>
-                                <span class="mr-2">:</span>
-                                <span class="text-gray-900 font-bold">{{ $data->kelompok_penyebab }}</span>
+                            <div class="flex flex-col mt-2">
+                                <span class="font-semibold mb-2">2. Kelompok Penyebab Kematian (Tanda ✓ pada salah satu)</span>
+                                <div class="grid grid-cols-3 gap-y-2 pl-4">
+                                    @php
+                                        $penyebabOptions = [
+                                            'a' => 'Penyakit Khusus',
+                                            'b' => 'Penyakit Menular',
+                                            'c' => 'Penyakit Tidak Menular',
+                                            'd' => 'Gangguan Maternal',
+                                            'e' => 'Gangguan Perinatal',
+                                            'f' => 'Gejala, Tanda dan kondisi lainnya',
+                                            'g' => 'Cedera Kecelakaan Lalu Lintas',
+                                            'h' => 'Cedera Kecelakaan Kerja',
+                                            'i' => 'Cedera Lainnya'
+                                        ];
+                                    @endphp
+                                    @foreach($penyebabOptions as $key => $val)
+                                        <div class="flex items-center">
+                                            <span class="inline-block w-4 h-4 border border-black mr-2 text-center leading-3 font-bold">
+                                                {{-- Kita cek apakah data di DB sama dengan value opsi ini --}}
+                                                {{ strtolower($data->kelompok_penyebab) == strtolower($val) ? '✓' : '' }}
+                                            </span>
+                                            <span>{{ $key }}. {{ $val }}</span>
+                                        </div>
+                                    @endforeach
+                                </div>
                             </div>
                         </div>
                     </div>
 
-
                 </div>
                     {{-- BAGIAN TANDA TANGAN & PILIHAN PENYEBAB --}}
-                    <div class="py-12" x-data="{ 
+                    <div class="py-2" x-data="{ 
                         namaPenerima: '', 
                         namaDokter: '', 
                         nipDokter: '',
