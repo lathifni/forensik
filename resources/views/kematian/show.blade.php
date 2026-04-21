@@ -22,16 +22,31 @@
         <div class="max-w-5xl mx-auto">
             <div id="printableArea" class="bg-white overflow-hidden">
                 
-                <div class="hidden print:block mb-2 px-4">
+                <div class="hidden print:block mb-4">
                     <img src="{{ asset('images/kop_surat.png') }}" class="w-full h-auto">
-
-                    <!-- Garis -->
-                    <div class="border-b-2 border-black"></div>
                 </div>
 
-                <div class="print:text-black">
-                    <h2 class="hidden print:block text-center text-xl font-black uppercase">Surat Keterangan Kematian</h2>
+                <div class="hidden print:grid grid-cols-4 items-center my-2">
+                    
+                    <div class="flex justify-start">
+                        <div class="border-2 border-black px-3 py-2 font-black text-xs uppercase">
+                            RAHASIA
+                        </div>
                     </div>
+
+                    <div class="col-span-2 text-center">
+                        <h2 class="text-lg font-black uppercase underline leading-tight whitespace-nowrap">
+                            Surat Keterangan Kematian
+                        </h2>
+                    </div>
+
+                    <div></div>
+
+                </div>
+
+                <div class="print:px-2">
+                    </div>
+
             </div>
         </div>
     </div>
@@ -206,6 +221,14 @@
                             <span class="mr-2">:</span>
                             <span class="text-gray-800 font-bold">
                                 {{ \Carbon\Carbon::parse($data->waktu_meninggal)->format('d F Y - H:i') }} WIB
+                            </span>
+                        </div>
+
+                        <div class="flex items-start">
+                            <span class="text-gray-500 font-semibold w-44 md:w-56 shrink-0">10. Tempat Meninggal</span>
+                            <span class="mr-2">:</span>
+                            <span class="text-gray-800 font-bold">
+                                {{ $data->tempat_meninggal }}
                             </span>
                         </div>
                     </div>
